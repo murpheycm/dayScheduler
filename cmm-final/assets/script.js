@@ -91,25 +91,22 @@ $(document).ready(function() {
     } else if (currentHour > timeId) {
       $(this).addClass("past");
     }
-    i++
   })
 
   // Text area and save buttons, each appended to the time block
   $(".time-block").each(function (i) {
-    const saveCol = $("<button>");
+    const saveCol = $("<button type='submit' class='col-span-2 h-16 bg-indigo-500 text-white font-bold hover:bg-indigo-400 transition duration-500 ease-in-out'><i class='fas fa-save text-xl'></i></button>");
     const timeValue = timeBlock[i].tValue;
     const inputDesc = $("<textarea>").text(timeBlock[i].userInput);
     inputDesc
       .addClass("col-8 col-md-10 float-left description")
       .attr("id", timeValue)
     saveCol
-      .addClass("btn saveBtn col-2 col-md-1 float-right")
+      .addClass("btn saveBtn col-2 col-md-1")
       .text("Save")
-      .ariaLabel("Save")
-    $(this).append(inputDesc)
+    $(this).append(inputDesc);
     $(this).append(saveCol);
-    $(".description").show()
-    // i++
+    $(".description").show();
   });
 
   // Save Button event listener 'click' and saved to local storage following page refresh
@@ -124,6 +121,7 @@ $(document).ready(function() {
   for (let i = 9; i < 18; i++) {
     $(`#${i}`).val(localStorage.getItem(i));
   }
+
 
 
   
