@@ -63,14 +63,13 @@ $(document).ready(function() {
     i++
   });
 
-  // Columns with hours
+  // Columns with hour blocks defined
   $("div.row").each(function (i) {
     const timeValue = timeBlock[i].tValue;
     const labelCol = $("<div>");
     const inputCol = $("<div>");
-
     labelCol
-      .addClass("col-2 hour")
+      .addClass("col-2 col-md-1 hour text-center py-3")
       .text(timeBlock[i].label)
     inputCol
       .addClass("col-10 time-block")
@@ -94,6 +93,38 @@ $(document).ready(function() {
     }
     i++
   })
+
+  // Text area and save buttons, each appended to the time block
+  $(".time-block").each(function (i) {
+    const saveCol = $("<button>");
+    const timeValue = timeBlock[i].tValue;
+    const inputDesc = $("<textarea>").text(timeBlock[i].userInput);
+    inputDesc
+      .addClass("col-8 col-md-10 float-left description")
+      .attr("id", timeValue)
+    saveCol
+      .addClass("btn saveBtn col-2 col-md-1 float-right")
+      .text("Save")
+      .ariaLabel("Save")
+    $(this).append(inputDesc)
+    $(this).append(saveCol);
+    $(".description").show()
+    // i++
+  });
+
+  // Save Button event listener 'click' and saved to local storage following page refresh
+  $(".saveBtn").on("click", function () {
+    const savedInput = $(this).siblings("textarea").val()
+    const timeInput = $(this).parent().attr("value")
+    localStorage.setItem(timeInput, savedInput);
+  });
+
+
+  // Render data from local storage in the text area of the time block
+  for (let i = 9; i < 18; i++) {
+    $(`#${i}`).val(localStorage.getItem(i));
+  }
+
 
   
 
