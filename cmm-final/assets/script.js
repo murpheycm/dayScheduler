@@ -18,7 +18,26 @@ $(function () {
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
     // attribute of each time-block be used to do this?
-    //
+
+
+
+
+
+
+
+    
     // TODO: Add code to display the current date in the header of the page.
+ 
+    const currentDate = new Date();
+    // Get the day of the week (0-6)
+    const dayOfWeek = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+    // Get the month of the year
+    const monthOfYear = currentDate.toLocaleDateString('en-US', { month: 'long' });
+    // Get the date (1-31)
+    const date = currentDate.getDate();
+    // Format the current day and date string
+    const currentDayAndDate = `${dayOfWeek}, ${monthOfYear} ${date}`;
+    // Display current date on the page under the header
+    document.getElementById("currentDay").textContent = currentDayAndDate;
   });
   
