@@ -20,6 +20,6 @@
 * WHEN I refresh the page
 * THEN the saved events persist
 
-## URL
+## https://murpheycm.github.io/dayScheduler/
 
 ![Alt text](./screenshot.JPG)
