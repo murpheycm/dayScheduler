@@ -7,7 +7,7 @@ body {
   textarea {
     background: transparent;
     border: none;
-    resize: none;
+    resize:none;
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
@@ -15,6 +15,8 @@ body {
   
   .description {
     white-space: pre-wrap;
+    vertical-align: middle;
+    font-size: large;
   }
   
   .time-block {
@@ -29,33 +31,41 @@ body {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
+    font-weight: bold;
   }
   
   .past {
     background-color: #d3d3d3;
     color: white;
+    padding: 0%;
   }
   
   .present {
     background-color: #ff6961;
     color: white;
+    padding: 0%;
   }
   
   .future {
     background-color: #77dd77;
     color: white;
+    padding: 0%;
   }
   
   .saveBtn {
-    border-left: 1px solid black;
+    border:none;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: #06aed5;
     color: white;
-  }
+    font-weight: bold;
+    min-height: 100px;
+  } 
   
-  .saveBtn i:hover {
+  .saveBtn:hover {
     font-size: 20px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    color: indigo;
+    background-color: rgb(139, 191, 250);
   }
   
